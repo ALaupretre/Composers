@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+		integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="style.css" />
+	<title>Composer Cards</title>
+</head>
+
+<body>
+	<h2 class="title">Western Classical Composers</h2>
+	<div class="composer-container" id="composer-container">
+
+		<div class="card active">
+			<div class="card-header">
+				<span class="tag"><i class="fa-solid fa-fire-flame-curved fa-xs"></i> Popular</span>
+				<span class="tag"><i class="fa-solid fa-star fa-xs"></i> Recommended</span>
+				<i class="fa-solid fa-xmark fa-xl close-btn"></i>
+			</div>
+
+			<div class="card-content">
+				<div class="card-main">
+					<img src="/portraits/Part.jpg" alt="COMPOSER NAME" class="card-portrait">
+					<h2 class="card-name">Franz Schubert</h2>
+					<p class="card-birth-death">1797-01-01 - 1828-01-01</p>
+					<p class="card-epoch">Romantic</p>
+				</div>
+
+				<div class="card-secondary">
+					<p class="card-wiki">Franz Peter Schubert (German: [ˈfʁant͡s ˈpeːtɐ ˈʃuːbɐt]; 31 January 1797 – 19
+						November 1828) was an Austrian composer of
+						the late Classical and early Romantic eras. Despite his short lifetime, Schubert left behind a
+						vast
+						oeuvre, including
+						more than 600 secular vocal works (mainly lieder), seven complete symphonies, sacred music,
+						operas,
+						incidental music,
+						and a large body of piano and chamber music. <a
+							href="https://en.wikipedia.org/wiki/Franz_Schubert">Learn more</a></p>
+					<button class="show-compositions"><i class="fa-solid fa-list"></i> SHOW
+						COMPOSITIONS</button>
+				</div>
+			</div>
+
+
+		</div>
+
+		<div class="vertical-line">1200</div>
+		<div class="vertical-line">1300</div>
+		<div class="vertical-line">1400</div>
+		<div class="vertical-line">1500</div>
+		<div class="vertical-line">1600</div>
+		<div class="vertical-line">1700</div>
+		<div class="vertical-line">1800</div>
+		<div class="vertical-line">1900</div>
+		<div class="vertical-line">2000</div>
+	</div>
+
+
+	<script src="data/composers.json"></script>
+	<script src="script.js"></script>
+</body>
+
+</html>

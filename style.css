@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap');
+
+:root {
+	--main-bg-color: #dfdfdf;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+/* scrollbar CHROME*/
+::-webkit-scrollbar {
+	width: 8px;
+	margin: 2px
+}
+
+::-webkit-scrollbar-track {
+	background: rgb(46, 46, 46);
+}
+
+::-webkit-scrollbar-thumb {
+	background: rgb(119, 119, 119);
+	border-radius: 100vw;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: rgb(80, 80, 80);
+}
+
+
+.title {
+	color: rgb(0, 0, 0)
+}
+
+body {
+	background-color: var(--main-bg-color);
+	color: #fff;
+	font-family: 'Roboto', sans-serif;
+}
+
+.composer-container {
+	background-color: rgb(20, 20, 20);
+	/* display: flex;  ask discord*/
+	/* border-radius: .5rem; */
+	width: 95vw;
+	height: 1600px;
+	border-radius: 5px;
+	/* border: 3px solid rgb(126, 239, 243); */
+	margin: 0 auto 5%;
+	position: relative;
+	overflow: hidden;
+	padding: 0;
+	box-shadow: 4px 6px 18px 0px rgba(0, 0, 0, 0.6);
+	background-size: 10%;
+}
+
+.vertical-line {
+	position: absolute;
+	color: rgb(92, 92, 92);
+	border-left: 1px solid rgb(71, 71, 71);
+	height: 100%;
+	z-index: 0;
+	overflow: visible;
+}
+
+.card {
+	position: absolute;
+	text-align: center;
+	width: 95%;
+	max-width: 800px;
+	background-color: var(--main-bg-color);
+	color: rgb(255, 255, 255);
+	margin: 1.5rem 2.5%;
+	padding: .7rem;
+	border-radius: 3px;
+	z-index: 1;
+	background: rgba(0, 0, 0, 0.6);
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
+	border: 1px solid rgba(255, 255, 255, 0.178)
+}
+
+.card-header {
+	display: inline-block;
+	display: flex;
+	width: 100%;
+	padding-bottom: .7rem;
+}
+
+.card-header .tag {
+	background-color: #3b3b3b;
+	font-weight: 300;
+	color: #cacaca;
+	font-family: inherit;
+	font-size: .8rem;
+	border-radius: 3px;
+	margin: .5rem .5rem auto .6rem;
+	padding: .2rem .4rem
+}
+
+.card-header .close-btn {
+	margin: 1rem 1rem 0 auto;
+	color: #cacaca;
+}
+
+.close-btn:hover {
+	cursor: pointer;
+	color: #fff;
+}
+
+.card-content {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.card-main {
+	margin: 1rem auto 0
+}
+
+.card-name {
+	letter-spacing: .1rem;
+}
+
+.card-birth-death {
+	font-weight: 300;
+	opacity: .9;
+	font-style: italic;
+}
+
+.card-epoch {
+	color: red;
+	opacity: .7;
+}
+
+.card-secondary {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	text-align: left;
+}
+
+.card-portrait {
+	width: 200px;
+	height: 200px;
+	border-radius: 100vw;
+	border: 2px solid #cacaca
+}
+
+.card-wiki {
+	line-height: 1.5;
+	font-weight: 300;
+	opacity: .8;
+}
+
+.card-wiki a {
+	color: rgb(122, 77, 17);
+	font-weight: 400;
+	text-decoration: none;
+}
+
+.card-wiki a:visited {
+	color: rgb(122, 77, 17);
+	opacity: .7;
+	font-weight: 400;
+	text-decoration: none;
+}
+
+
+
+.show-compositions {
+	cursor: pointer;
+	outline: 0;
+	color: rgb(0, 0, 0);
+	background-color: #dadada;
+	font-family: inherit;
+	margin: auto;
+	font-weight: 400;
+	line-height: 1.5;
+	border: none;
+	padding: .5rem 1rem;
+	font-size: 1rem;
+	border-radius: .25rem;
+	transition: color .15s ease-in-out, background-color .15s ease-in-out;
+}
+
+.show-compositions:hover {
+	color: #fff;
+	background-color: #252525;
+}
+
+.composer {
+	position: absolute;
+	height: 4px;
+	text-align: left;
+	transition: .7s ease;
+	border-radius: 2px;
+}
+
+.composer:hover {
+	cursor: pointer;
+	box-shadow: 0 0 15px #FFF;
+	transition-duration: 0s;
+	z-index: 1000
+}
+
+.composer .img-container img {
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+}
+
+.composer .name {
+	opacity: 0;
+	font-size: 12px;
+	/* margin-top: 20px; */
+	transition: .7s ease;
+}
+
+.composer .name:hover {
+	padding-top: 10px;
+	opacity: 1;
+	font-size: 1rem;
+	transition-duration: .2s
+		/* margin-top: 20px; */
+}
+
+@media (min-width: 740px) {
+	.card-content {
+		flex-direction: row;
+	}
+
+	.card-main {
+		margin-left: 3rem;
+		margin-right: 3rem;
+	}
+
+
+}
