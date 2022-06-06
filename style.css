@@ -73,7 +73,7 @@ body {
 	margin: 1.5rem 2.5%;
 	padding: .7rem;
 	border-radius: 3px;
-	z-index: 1;
+	z-index: 100;
 	background: rgba(0, 0, 0, 0.6);
 	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
 	backdrop-filter: blur(5px);
@@ -130,8 +130,7 @@ body {
 }
 
 .card-epoch {
-	color: red;
-	opacity: .7;
+	font-weight: bold;
 }
 
 .card-secondary {
@@ -179,9 +178,9 @@ body {
 	font-weight: 400;
 	line-height: 1.5;
 	border: none;
-	padding: .5rem 1rem;
+	padding: .4rem .8rem;
 	font-size: 1rem;
-	border-radius: .25rem;
+	border-radius: 3px;
 	transition: color .15s ease-in-out, background-color .15s ease-in-out;
 }
 
@@ -202,7 +201,7 @@ body {
 	cursor: pointer;
 	box-shadow: 0 0 15px #FFF;
 	transition-duration: 0s;
-	z-index: 1000
+	z-index: 50
 }
 
 .composer .img-container img {
