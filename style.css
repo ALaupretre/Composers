@@ -28,9 +28,9 @@
 }
 
 
-.title {
+/* .title {
 	color: rgb(0, 0, 0)
-}
+} */
 
 body {
 	background-color: var(--main-bg-color);
@@ -38,20 +38,61 @@ body {
 	font-family: 'Roboto', sans-serif;
 }
 
-.composer-container {
+.container {
 	background-color: rgb(20, 20, 20);
+	border-radius: 5px;
+	width: 95vw;
+	margin: 0 auto 1rem;
+	box-shadow: 4px 6px 18px 0px rgba(0, 0, 0, 0.4);
+}
+
+.top-container {
+	position: relative;
+	height: 4rem;
+	text-align: center;
+}
+
+/* Search bar */
+
+.search {
+	position: absolute;
+	width: auto;
+	top: 50%;
+	left: 20px;
+	transform: translateY(-50%);
+}
+
+.search-term {
+	background-color: rgba(255, 255, 255, 0.178);
+	border: 0;
+	border-radius: 5px;
+	color: #FFF;
+	font-size: 1rem;
+	padding: 9px 12px;
+}
+
+.search-term:focus {
+	background-color: rgba(255, 255, 255, 0.4);
+	outline: none;
+}
+
+::placeholder {
+	color: rgba(255, 255, 255, 0.699);
+}
+
+
+
+.composer-container {
+
 	/* display: flex;  ask discord*/
 	/* border-radius: .5rem; */
-	width: 95vw;
+
 	height: 1600px;
-	border-radius: 5px;
+
 	/* border: 3px solid rgb(126, 239, 243); */
-	margin: 0 auto 5%;
 	position: relative;
 	overflow: hidden;
 	padding: 0;
-	box-shadow: 4px 6px 18px 0px rgba(0, 0, 0, 0.6);
-	background-size: 10%;
 }
 
 .vertical-line {
@@ -64,13 +105,13 @@ body {
 }
 
 .card {
-	position: absolute;
+	position: fixed;
 	text-align: center;
-	width: 95%;
+	width: 90vw;
 	max-width: 800px;
-	background-color: var(--main-bg-color);
+	max-height: 85vh;
 	color: rgb(255, 255, 255);
-	margin: 1.5rem 2.5%;
+	margin: 1rem 2.5%;
 	padding: .7rem;
 	border-radius: 3px;
 	z-index: 100;
@@ -78,7 +119,8 @@ body {
 	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
 	backdrop-filter: blur(5px);
 	-webkit-backdrop-filter: blur(5px);
-	border: 1px solid rgba(255, 255, 255, 0.178)
+	border: 1px solid rgba(255, 255, 255, 0.178);
+	overflow-y: auto;
 }
 
 .card-header {
@@ -154,7 +196,7 @@ body {
 }
 
 .card-wiki a {
-	color: rgb(122, 77, 17);
+	color: rgb(216, 146, 54);
 	font-weight: 400;
 	text-decoration: none;
 }
@@ -165,8 +207,6 @@ body {
 	font-weight: 400;
 	text-decoration: none;
 }
-
-
 
 .show-compositions {
 	cursor: pointer;
@@ -193,8 +233,13 @@ body {
 	position: absolute;
 	height: 4px;
 	text-align: left;
-	transition: .7s ease;
+	transition: box-shadow .7s ease;
 	border-radius: 2px;
+}
+
+.composer.matching {
+	height: 5px;
+	outline: 3px solid #FFF;
 }
 
 .composer:hover {
@@ -202,12 +247,6 @@ body {
 	box-shadow: 0 0 15px #FFF;
 	transition-duration: 0s;
 	z-index: 50
-}
-
-.composer .img-container img {
-	width: 200px;
-	height: 200px;
-	border-radius: 50%;
 }
 
 .composer .name {
@@ -226,6 +265,11 @@ body {
 }
 
 @media (min-width: 740px) {
+	.card {
+		position: fixed;
+		margin: 2rem 2.5%
+	}
+
 	.card-content {
 		flex-direction: row;
 	}
@@ -233,6 +277,13 @@ body {
 	.card-main {
 		margin-left: 3rem;
 		margin-right: 3rem;
+	}
+}
+
+@media (max-width: 530px) {
+	.card-portrait {
+		width: 120px;
+		height: 120px;
 	}
 
 
