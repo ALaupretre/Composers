@@ -106,6 +106,8 @@ body {
 
 .card {
 	position: fixed;
+	top: 50%;
+	transform: translateY(-50%);
 	text-align: center;
 	width: 90vw;
 	max-width: 800px;
