@@ -62,7 +62,19 @@ body {
 	transform: translateY(-50%);
 }
 
-.search-term {
+.search::after {
+	color: rgba(255, 255, 255, 0.699);
+	text-align: left;
+	position: absolute;
+	content: attr(data-value);
+	left: 85%;
+	top: 50%;
+	transform: translateY(-50%)
+}
+
+
+
+.search input {
 	background-color: rgba(255, 255, 255, 0.178);
 	border: 0;
 	border-radius: 5px;
@@ -223,7 +235,6 @@ body {
 	padding: .4rem .8rem;
 	font-size: 1rem;
 	border-radius: 3px;
-	transition: color .15s ease-in-out, background-color .15s ease-in-out;
 }
 
 .show-compositions:hover {
@@ -235,13 +246,13 @@ body {
 	position: absolute;
 	height: 4px;
 	text-align: left;
-	transition: box-shadow .7s ease;
+	transition: box-shadow .7s ease, background-color .7s ease;
 	border-radius: 2px;
 }
 
 .composer.matching {
 	height: 5px;
-	outline: 3px solid #FFF;
+	outline: 2px solid #fff;
 }
 
 .composer:hover {

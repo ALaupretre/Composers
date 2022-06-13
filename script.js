@@ -5,9 +5,10 @@ const verticalLines = document.querySelectorAll(".vertical-line");
 const compContainer = document.getElementById("composer-container");
 const portrait = document.querySelector(".card-portrait");
 const composerContainer = document.getElementById("composer-container");
+const searchLabel = document.querySelector(".search");
 const search = document.querySelector(".search-term");
 
-const composer_count = 1;
+
 
 
 // Create color for each epoch
@@ -110,7 +111,11 @@ function showComposers(composers) {
 		});
 
 
-		search.addEventListener("input", (e) => matchCard(e.target.value));
+		search.addEventListener("input", (e) => {
+			matchCard(e.target.value);
+			let matchCount = "|  " + document.querySelectorAll(".matching").length;
+			searchLabel.setAttribute("data-value", matchCount);
+		});
 
 		// Add .matching to composerEl if searchTerm matched fullName
 		function matchCard(searchTerm) {
@@ -124,10 +129,14 @@ function showComposers(composers) {
 
 				&& searchTerm.length > 1) {
 
+
+
 				composerEl.classList.add("matching");
 			} else {
 				composerEl.classList.remove("matching");
+
 			}
+
 		}
 	});
 };
