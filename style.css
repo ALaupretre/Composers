@@ -269,7 +269,7 @@ body {
 	opacity: 0;
 	font-size: 12px;
 	/* margin-top: 20px; */
-	transition: .7s ease;
+	transition: .5s linear;
 }
 
 .composer .name:hover {

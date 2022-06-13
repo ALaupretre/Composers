@@ -7,6 +7,10 @@ const portrait = document.querySelector(".card-portrait");
 const composerContainer = document.getElementById("composer-container");
 const searchLabel = document.querySelector(".search");
 const search = document.querySelector(".search-term");
+const radios = document.querySelectorAll(".radio");
+const allBox = document.getElementById("all");
+const popularBox = document.getElementById("popular");
+const recommendedBox = document.getElementById("recommended");
 
 
 
@@ -58,7 +62,6 @@ function showComposers(composers) {
 		const isPopular = composer.popular === "1";
 		const isRecommended = composer.recommended === "1";
 
-
 		birthYearValue = Number(birthYear);
 		deathYearValue = Number(deathYear);
 		// const lifeSpan = deathYearValue - birthYearValue;
@@ -74,8 +77,16 @@ function showComposers(composers) {
 		const epoch = composer.epoch;
 		const color = colors[epoch]; // Get color from object
 
+
+
+
 		const composerEl = document.createElement("div");
+
+
+
 		composerEl.classList.add("composer");
+
+
 
 		composerEl.setAttribute(
 			"style", `
@@ -86,6 +97,35 @@ function showComposers(composers) {
 			// top : ${Math.random() * 90 + 5}%
 
 		);
+
+		radios.forEach(radio => radio.addEventListener("change", (e) => {
+			if (allBox.checked) {
+				composerEl.style.opacity = 1;
+				composerEl.style.pointerEvents = "initial";
+			}
+
+			if (popularBox.checked) {
+				if (isPopular) {
+					composerEl.style.opacity = 1;
+					composerEl.style.pointerEvents = "initial";
+				} else {
+					composerEl.style.opacity = .2;
+					composerEl.style.pointerEvents = "none";
+				}
+			}
+
+			if (recommendedBox.checked) {
+				if (isRecommended) {
+					composerEl.style.opacity = 1;
+					composerEl.style.pointerEvents = "initial";
+				} else {
+					composerEl.style.opacity = .2;
+					composerEl.style.pointerEvents = "none";
+				}
+			}
+		}));
+
+
 
 		composerEl.innerHTML = `
 			<div class="name">
