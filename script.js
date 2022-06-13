@@ -179,11 +179,13 @@ function showCard(fullName, birth, death, epoch, color, name, isPopular, isRecom
 		.then(res => res.json())
 		.then(data => {
 			const pageId = data.query.search[0].pageid;
+			console.log(pageId);
 
 			fetch(`${WIKI_URL}format=json&action=query&prop=extracts&exsentences=3&explaintext&pageids=${pageId}`)
 				.then(res => res.json())
 				.then(data => {
 					const wikiContent = data.query.pages[pageId].extract;
+					console.log(wikiContent);
 
 
 					card.innerHTML = `
@@ -209,15 +211,20 @@ function showCard(fullName, birth, death, epoch, color, name, isPopular, isRecom
 								</div>
 							</div>
 					`;
+
 					composerContainer.appendChild(card);
-					document.querySelector(".close-btn").addEventListener("click", (e) => {
-						card.parentElement.removeChild(card);
-						closeCard();
+
+					// All close btn are needed in case many cards are opened
+					document.querySelectorAll(".close-btn").forEach((btn) => {
+						btn.addEventListener("click", () => closeCard()
+						);
 					});
 				});
 		});
+
 	// console.log(pageId);
 }
+
 
 function closeCard() {
 	const cards = document.querySelectorAll(".card");

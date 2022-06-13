@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap');
 
 :root {
-	--main-bg-color: #dfdfdf;
+	--main-bg-color: #e7eff8;
 }
 
 * {
@@ -89,6 +89,7 @@ body {
 }
 
 ::placeholder {
+	font-family: inherit;
 	color: rgba(255, 255, 255, 0.699);
 }
 
@@ -251,8 +252,10 @@ body {
 }
 
 .composer.matching {
+	z-index: 100;
 	height: 5px;
 	outline: 2px solid #fff;
+	outline-offset: 2px;
 }
 
 .composer:hover {
