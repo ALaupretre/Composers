@@ -7,10 +7,15 @@ const portrait = document.querySelector(".card-portrait");
 const composerContainer = document.getElementById("composer-container");
 const searchLabel = document.querySelector(".search");
 const search = document.querySelector(".search-term");
-const radios = document.querySelectorAll(".radio");
+
+const radiosSelect = document.querySelectorAll(".select .radio");
 const allBox = document.getElementById("all");
 const popularBox = document.getElementById("popular");
 const recommendedBox = document.getElementById("recommended");
+
+const radiosSort = document.querySelectorAll(".sort .radio");
+const alphabeticalBox = document.getElementById("alphabetical");
+const birthBox = document.getElementById("birth");
 
 
 
@@ -37,7 +42,13 @@ async function getComposers(url) {
 	const data = await res.json();
 
 	showComposers(data.composers);
+	radiosSort.forEach(radio => radio.addEventListener("change", () => {
+		document.querySelectorAll(".composer").forEach((composer) => composer.remove());
+		showComposers(data.composers);
+	}));
 }
+
+
 
 
 // Position vertical lines
@@ -46,10 +57,22 @@ verticalLines.forEach((verticalLine) => {
 });
 
 
-// Create a div for each composer
 
+
+// Create a div for each composer
 function showComposers(composers) {
+
+	if (alphabeticalBox.checked) {
+		composers.sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
+	}
+	if (birthBox.checked) {
+		composers.sort((a, b) => a.birth.slice(0, 4) - b.birth.slice(0, 4));
+	}
+
+
+
 	composers.forEach((composer, idx) => {
+
 		const name = composer.name;
 		const fullName = composer.complete_name;
 
@@ -98,7 +121,7 @@ function showComposers(composers) {
 
 		);
 
-		radios.forEach(radio => radio.addEventListener("change", (e) => {
+		function checkSelect() {
 			if (allBox.checked) {
 				composerEl.style.opacity = 1;
 				composerEl.style.pointerEvents = "initial";
@@ -109,7 +132,7 @@ function showComposers(composers) {
 					composerEl.style.opacity = 1;
 					composerEl.style.pointerEvents = "initial";
 				} else {
-					composerEl.style.opacity = .2;
+					composerEl.style.opacity = .1;
 					composerEl.style.pointerEvents = "none";
 				}
 			}
@@ -119,10 +142,17 @@ function showComposers(composers) {
 					composerEl.style.opacity = 1;
 					composerEl.style.pointerEvents = "initial";
 				} else {
-					composerEl.style.opacity = .2;
+					composerEl.style.opacity = .1;
 					composerEl.style.pointerEvents = "none";
 				}
 			}
+		}
+
+		checkSelect();
+
+		// Select composers on selected filter
+		radiosSelect.forEach(radio => radio.addEventListener("change", () => {
+			checkSelect();
 		}));
 
 
@@ -180,6 +210,8 @@ function showComposers(composers) {
 		}
 	});
 };
+
+
 
 
 // Remove all accents,  remove "." and "," and replace " " with "-"
