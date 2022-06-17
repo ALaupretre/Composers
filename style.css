@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap');
 
 :root {
-	--main-bg-color: #e7eff8;
+	--main-bg-color: #d6d6d6;
 }
 
 * {
@@ -28,9 +28,7 @@
 }
 
 
-/* .title {
-	color: rgb(0, 0, 0)
-} */
+
 
 body {
 	background-color: var(--main-bg-color);
@@ -46,24 +44,75 @@ body {
 	box-shadow: 4px 6px 18px 0px rgba(0, 0, 0, 0.4);
 }
 
+
+
+/* Top container */
+
 .top-container {
-	position: relative;
-	height: 4rem;
-	text-align: center;
+	display: flex;
+	padding: .6rem 1rem;
+
 }
 
+.top-container .title {
+	margin: 0;
+	line-height: 1.4;
+}
+
+
+
+/* Radio buttons */
+.radio-box {
+	margin: auto 2.5rem auto 0;
+	text-align: center;
+	line-height: 2;
+}
+
+.radio-box h4 {
+	margin: 0 auto 1rem;
+}
+
+.radio-box label {
+	position: relative;
+	cursor: pointer;
+}
+
+input.radio {
+	position: absolute;
+	opacity: 0;
+}
+
+input.radio+span {
+	color: #838383;
+	background-color: #3b3b3b;
+	padding: .25rem .5rem;
+	margin: 0 .15rem;
+	border-radius: 50vh;
+	transition: all 0.4s;
+	white-space: nowrap;
+}
+
+input.radio:checked+span {
+	color: #fff;
+	background-color: #727272;
+}
+
+
+
+
 /* Search bar */
+.search-box {
+	margin-left: auto;
+	white-space: nowrap;
+}
 
 .search {
-	position: absolute;
-	width: auto;
-	top: 50%;
-	left: 20px;
-	transform: translateY(-50%);
+	margin-left: .5rem;
+	position: relative;
 }
 
 .search::after {
-	color: rgba(255, 255, 255, 0.699);
+	color: rgba(255, 255, 255, 0.918);
 	text-align: left;
 	position: absolute;
 	content: attr(data-value);
@@ -71,8 +120,6 @@ body {
 	top: 50%;
 	transform: translateY(-50%)
 }
-
-
 
 .search input {
 	background-color: rgba(255, 255, 255, 0.178);
@@ -92,6 +139,7 @@ body {
 	font-family: inherit;
 	color: rgba(255, 255, 255, 0.699);
 }
+
 
 
 
@@ -127,7 +175,7 @@ body {
 	max-height: 85vh;
 	color: rgb(255, 255, 255);
 	margin: 1rem 2.5%;
-	padding: .7rem;
+	padding: .7rem .7rem 1.4rem;
 	border-radius: 3px;
 	z-index: 100;
 	background: rgba(0, 0, 0, 0.6);
@@ -142,7 +190,6 @@ body {
 	display: inline-block;
 	display: flex;
 	width: 100%;
-	padding-bottom: .7rem;
 }
 
 .card-header .tag {
@@ -157,8 +204,9 @@ body {
 }
 
 .card-header .close-btn {
-	margin: 1rem 1rem 0 auto;
-	color: #cacaca;
+	font-size: 2.5rem;
+	margin: 0 0 0 auto;
+	color: #9b9b9b;
 }
 
 .close-btn:hover {
@@ -280,7 +328,29 @@ body {
 	transition-duration: .15s
 }
 
+@media (max-width: 1040px) {
+	.top-container .title {
+		display: none;
+	}
+}
+
+@media (max-width: 750px) {
+	.top-container {
+		flex-direction: column-reverse;
+	}
+
+	.search-box {
+		margin: auto
+	}
+
+	.radio-box {
+		margin: .5rem 0 0
+	}
+}
+
 @media (min-width: 740px) {
+
+
 	.card {
 		position: fixed;
 		margin: 2rem 2.5%

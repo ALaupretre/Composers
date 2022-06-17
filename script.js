@@ -239,9 +239,9 @@ function showCard(fullName, birth, death, epoch, color, name, isPopular, isRecom
 	closeCard();
 
 	// Tag if popular/recommended
-	const popular = isPopular ? `<span class="tag"><i class="fa-solid fa-fire-flame-curved fa-xs"></i> Popular</span>` : "";
+	const popular = isPopular ? `<span class="tag"><i class="las la-fire-alt"></i></i> Popular</span>` : "";
 
-	const recommended = isRecommended ? `<span class="tag"><i class="fa-solid fa-star fa-xs"></i> Recommended</span>` : "";
+	const recommended = isRecommended ? `<span class="tag"><i class="lar la-star"></i> Recommended</span>` : "";
 
 
 	const card = document.createElement("div");
@@ -264,7 +264,7 @@ function showCard(fullName, birth, death, epoch, color, name, isPopular, isRecom
 					<div class="card-header">
 								${popular}
 								${recommended}
-								<i class="fa-solid fa-xmark fa-xl close-btn"></i>
+								<i class="las la-window-close close-btn"></i>
 							</div>
 
 							<div class="card-content">
@@ -278,7 +278,7 @@ function showCard(fullName, birth, death, epoch, color, name, isPopular, isRecom
 								<div class="card-secondary">
 									<p class="card-wiki">${wikiContent} <a target="_blank"
 											href="http://en.wikipedia.org/?curid=${pageId}">Learn more</a></p>
-									<button class="show-compositions"><i class="fa-solid fa-list"></i> SHOW
+									<button class="show-compositions"><i class="las la-list"></i></i> SHOW
 										COMPOSITIONS</button>
 								</div>
 							</div>

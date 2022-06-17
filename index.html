@@ -4,30 +4,61 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-		integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="/css/line-awesome.min.css">
 	<link rel="stylesheet" href="style.css" />
 	<title>Composer Cards</title>
 </head>
 
 <body>
 	<div class="container top-container">
-		<h3 class="title">WESTERN CLASSICAL COMPOSERS</h3>
+		<!-- <h3 class="title">WESTERN<br>CLASSICAL<br>COMPOSERS</h3> -->
 
-		<label class="search">
-			<input type="text" class="search-term" placeholder="Search for a composer">
-		</label>
-		<div class="select">
-			all<input name="select" type="radio" class="radio" id="all" checked>
-			popular<input name="select" type="radio" class="radio" id="popular">
-			recommended<input name="select" type="radio" class="radio" id="recommended">
+		<div class="radio-box sort">
+			<span>Sort By</span>
+
+			<label for="alphabetical">
+				<input name="sort" type="radio" class="radio" id="alphabetical" checked>
+				<span><i class="las la-sort-alpha-down"></i> Name</span>
+			</label>
+
+
+			<label for="birth">
+				<input name="sort" type="radio" class="radio" id="birth">
+				<span><i class="las la-birthday-cake"></i> Birth Date</span>
+			</label>
+			<!-- <i class="las la-sort-alpha-down"></i> -->
+
+			<!-- <i class="las la-birthday-cake"></i> -->
 		</div>
 
-		<div class="sort">
-			alphabetical<input name="sort" type="radio" class="radio" id="alphabetical" checked>
-			birth<input name="sort" type="radio" class="radio" id="birth">
+		<div class="radio-box select">
+			<span>Show</span>
+
+			<label for="all">
+				<input name="select" type="radio" class="radio" id="all" checked>
+				<span><i class="las la-infinity"></i> All</span>
+			</label>
+
+			<label for="popular">
+				<input name="select" type="radio" class="radio" id="popular">
+				<span><i class="las la-fire-alt"></i> Popular</span>
+			</label>
+
+			<label for="recommended">
+				<input name="select" type="radio" class="radio" id="recommended">
+				<span><i class="lar la-star"></i> Recommended</span>
+			</label>
+
+
 		</div>
+
+		<div class="search-box">
+			<i class="las la-search la-lg"></i>
+			<label class="search">
+				<input type="text" class="search-term" placeholder="Search for a composer">
+			</label>
+		</div>
+
 
 
 
