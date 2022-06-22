@@ -20,7 +20,7 @@ const birthBox = document.getElementById("birth");
 
 
 
-// Create color for each epoch
+// Color for each epoch
 const colors = {
 	"Medieval": "#fff100",
 	"Renaissance": "#ff8c00",
@@ -72,7 +72,6 @@ function showComposers(composers) {
 
 
 	composers.forEach((composer, idx) => {
-
 		const name = composer.name;
 		const fullName = composer.complete_name;
 
@@ -100,6 +99,8 @@ function showComposers(composers) {
 		const epoch = composer.epoch;
 		const color = colors[epoch]; // Get color from object
 
+		const works = composer.works;
+
 
 
 
@@ -121,40 +122,39 @@ function showComposers(composers) {
 
 		);
 
-		function checkSelect() {
+		function checkSelect(el) {
 			if (allBox.checked) {
-				composerEl.style.opacity = 1;
-				composerEl.style.pointerEvents = "initial";
+				el.style.opacity = 1;
+				el.style.pointerEvents = "initial";
 			}
 
 			if (popularBox.checked) {
 				if (isPopular) {
-					composerEl.style.opacity = 1;
-					composerEl.style.pointerEvents = "initial";
+					el.style.opacity = 1;
+					el.style.pointerEvents = "initial";
 				} else {
-					composerEl.style.opacity = .1;
-					composerEl.style.pointerEvents = "none";
+					el.style.opacity = .1;
+					el.style.pointerEvents = "none";
 				}
 			}
 
 			if (recommendedBox.checked) {
 				if (isRecommended) {
-					composerEl.style.opacity = 1;
-					composerEl.style.pointerEvents = "initial";
+					el.style.opacity = 1;
+					el.style.pointerEvents = "initial";
 				} else {
-					composerEl.style.opacity = .1;
-					composerEl.style.pointerEvents = "none";
+					el.style.opacity = .1;
+					el.style.pointerEvents = "none";
 				}
 			}
 		}
 
-		checkSelect();
+		checkSelect(composerEl);
 
 		// Select composers on selected filter
 		radiosSelect.forEach(radio => radio.addEventListener("change", () => {
-			checkSelect();
+			checkSelect(composerEl);
 		}));
-
 
 
 		composerEl.innerHTML = `
@@ -177,7 +177,7 @@ function showComposers(composers) {
 
 		composerEl.addEventListener("click", () => {
 			closeCard();
-			showCard(fullName, birthYear, deathYear, epoch, color, name, isPopular, isRecommended);
+			showCard(fullName, birthYear, deathYear, epoch, color, name, isPopular, isRecommended, works);
 		});
 
 
@@ -235,13 +235,16 @@ function toKebabCase(str) {
 // 	}
 // }
 
-function showCard(fullName, birth, death, epoch, color, name, isPopular, isRecommended) {
+function showCard(fullName, birth, death, epoch, color, name, isPopular, isRecommended, works) {
 	closeCard();
+
+
 
 	// Tag if popular/recommended
 	const popular = isPopular ? `<span class="tag"><i class="las la-fire-alt"></i></i> Popular</span>` : "";
 
 	const recommended = isRecommended ? `<span class="tag"><i class="lar la-star"></i> Recommended</span>` : "";
+
 
 
 	const card = document.createElement("div");
@@ -251,20 +254,17 @@ function showCard(fullName, birth, death, epoch, color, name, isPopular, isRecom
 		.then(res => res.json())
 		.then(data => {
 			const pageId = data.query.search[0].pageid;
-			console.log(pageId);
 
 			fetch(`${WIKI_URL}format=json&action=query&prop=extracts&exsentences=3&explaintext&pageids=${pageId}`)
 				.then(res => res.json())
 				.then(data => {
 					const wikiContent = data.query.pages[pageId].extract;
-					console.log(wikiContent);
-
 
 					card.innerHTML = `
 					<div class="card-header">
 								${popular}
 								${recommended}
-								<i class="las la-window-close close-btn"></i>
+								<i class="las la-times close-btn"></i>
 							</div>
 
 							<div class="card-content">
@@ -278,14 +278,15 @@ function showCard(fullName, birth, death, epoch, color, name, isPopular, isRecom
 								<div class="card-secondary">
 									<p class="card-wiki">${wikiContent} <a target="_blank"
 											href="http://en.wikipedia.org/?curid=${pageId}">Learn more</a></p>
-									<button class="show-compositions"><i class="las la-list"></i></i> SHOW
-										COMPOSITIONS</button>
+									<button class="show-compositions"><i class="las la-list la-lg"></i> SHOW COMPOSITIONS</button>
 								</div>
 							</div>
 					`;
 
+
 					composerContainer.appendChild(card);
 
+					document.querySelector(".show-compositions").addEventListener("click", sendValue(name, works, fullName));
 					// All close btn are needed in case many cards are opened
 					document.querySelectorAll(".close-btn").forEach((btn) => {
 						btn.addEventListener("click", () => closeCard()
@@ -297,18 +298,20 @@ function showCard(fullName, birth, death, epoch, color, name, isPopular, isRecom
 	// console.log(pageId);
 }
 
+function sendValue(name, works, fullName) {
+	window.open("compositions.html");
+	localStorage.setItem("name", name);
+	localStorage.setItem("fullName", fullName);
+	localStorage.setItem("works", JSON.stringify(works));
+	console.log(name);
+	console.log(works);
+}
 
 function closeCard() {
 	const cards = document.querySelectorAll(".card");
 	cards.forEach((card) => card.remove());
 	// card.parentElement.removeChild(card);
 }
-
-
-
-
-
-
 
 
 
