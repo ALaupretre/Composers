@@ -286,7 +286,10 @@ function showCard(fullName, birth, death, epoch, color, name, isPopular, isRecom
 
 					composerContainer.appendChild(card);
 
-					document.querySelector(".show-compositions").addEventListener("click", sendValue(name, works, fullName));
+					document.querySelector(".show-compositions").addEventListener("click", () => {
+						sendValue(name, works, fullName);
+					});
+
 					// All close btn are needed in case many cards are opened
 					document.querySelectorAll(".close-btn").forEach((btn) => {
 						btn.addEventListener("click", () => closeCard()

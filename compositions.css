@@ -1,14 +1,53 @@
+.header {
+	padding: 1px;
+	text-align: center;
+}
+
+
 .flex-container {
 	display: flex;
+	align-items: flex-start;
 	flex-wrap: wrap;
-
+	gap: 1rem;
 	width: 95vw;
 	margin: 0 auto 1rem;
-	border: 2px solid red
 }
 
 .list {
+	flex-grow: 1;
 	background-color: var(--secondary-bg-color);
+	max-width: 600px;
+	padding: 0 1rem .8rem;
 	border-radius: 5px;
-	border: 2px solid green
+	box-shadow: 4px 6px 18px 0px rgba(0, 0, 0, 0.4);
+	/* text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden; */
+}
+
+.list h3 {
+	font-size: 1.4rem;
+	text-align: center;
+	margin-bottom: 2rem;
+	letter-spacing: .08rem;
+}
+
+.list p {
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	opacity: .9;
+	margin: 0%;
+}
+
+.list p i {
+	font-size: 1.2rem;
+}
+
+.list p i.la-star {
+	color: rgb(255, 225, 89)
+}
+
+.list p i.la-fire-alt {
+	color: rgb(255, 148, 77)
 }
