@@ -1,5 +1,8 @@
-h1 {
+body {
 	color: #000;
+}
+
+h1 {
 	margin: 40px auto;
 	text-align: center;
 }
@@ -16,14 +19,15 @@ h1 {
 	overflow: hidden;
 	margin: 1rem 0;
 	padding: 10px;
-	background-color: var(--secondary-bg-color);
+	border: 1px solid #EEE;
 	border-radius: 5px;
-	box-shadow: 4px 6px 18px 0px rgba(0, 0, 0, 0.4);
+	box-shadow: 4px 6px 18px 0px rgba(0, 0, 0, 0.15);
 	transition: .3s ease-in-out;
 }
 
 .list.active {
-	background-color: #2b2b2b;
+	background-color: #EEE;
+	border: none;
 	max-height: 90vh;
 	overflow-y: auto;
 }
@@ -49,7 +53,7 @@ h1 {
 }
 
 .list p {
-	line-height: .8;
+	color: rgba(0, 0, 0, .8)
 }
 
 .list p i {
@@ -57,9 +61,9 @@ h1 {
 }
 
 .list p i.la-star {
-	color: rgb(255, 225, 89)
+	color: rgb(216, 179, 17)
 }
 
 .list p i.la-fire-alt {
-	color: rgb(255, 148, 77)
+	color: rgb(207, 104, 35)
 }
