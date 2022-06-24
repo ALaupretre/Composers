@@ -8,8 +8,9 @@ const listVocal = document.querySelector(".vocal");
 const works = JSON.parse(localStorage.works);
 
 document.title = localStorage.name + " Works";
-document.getElementById("composerValue").innerHTML = localStorage.fullName;
-console.log(JSON.parse(localStorage.works));
+
+document.getElementById("title").innerHTML =
+	`List of works by ${localStorage.fullName} (${JSON.parse(localStorage.works).length})`;
 
 
 works.forEach((work) => {

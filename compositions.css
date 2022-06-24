@@ -23,6 +23,7 @@ h1 {
 }
 
 .list.active {
+	background-color: #2b2b2b;
 	max-height: 90vh;
 	overflow-y: auto;
 }
@@ -40,17 +41,14 @@ h1 {
 	left: 30px;
 	position: absolute;
 	font-size: 2rem;
-	transition: .15s ease-in;
+	transition: .1s ease-in;
 }
-
-.drop-btn:hover {}
 
 .list.active .drop-btn {
 	transform: rotate(180deg);
 }
 
 .list p {
-	opacity: .9;
 	line-height: .8;
 }
 
