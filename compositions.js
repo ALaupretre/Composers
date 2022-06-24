@@ -1,4 +1,5 @@
 const lists = document.querySelectorAll(".list");
+const dropBtns = document.querySelectorAll(".drop-btn");
 const listChamber = document.querySelector(".chamber");
 const listKeyboard = document.querySelector(".keyboard");
 const listOrchestral = document.querySelector(".orchestral");
@@ -35,7 +36,6 @@ function sortGenre(object, child) {
 	if (object.genre === "Vocal") {
 		listVocal.appendChild(child);
 	}
-
 }
 
 // Write icons if popular, recommended or both
@@ -51,7 +51,13 @@ function popRecIcons(object) {
 }
 
 lists.forEach((list) => {
-	if (list.childNodes.length < 4) {
+	if (list.childNodes.length < 6) {
 		list.remove();
 	}
+});
+
+dropBtns.forEach(dropBtn => {
+	dropBtn.addEventListener("click", () => {
+		dropBtn.parentNode.classList.toggle("active");
+	});
 });

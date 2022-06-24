@@ -1,43 +1,57 @@
-.header {
-	padding: 1px;
+h1 {
+	color: #000;
+	margin: 40px auto;
 	text-align: center;
 }
 
 
-.flex-container {
-	display: flex;
-	align-items: flex-start;
-	flex-wrap: wrap;
-	gap: 1rem;
-	width: 95vw;
-	margin: 0 auto 1rem;
+.list-container {
+	max-width: 700px;
+	margin: 0 auto;
 }
 
 .list {
-	flex-grow: 1;
+	position: relative;
+	max-height: 100px;
+	overflow: hidden;
+	margin: 1rem 0;
+	padding: 10px;
 	background-color: var(--secondary-bg-color);
-	max-width: 600px;
-	padding: 0 1rem .8rem;
 	border-radius: 5px;
 	box-shadow: 4px 6px 18px 0px rgba(0, 0, 0, 0.4);
-	/* text-overflow: ellipsis;
-	white-space: nowrap;
-	overflow: hidden; */
+	transition: .3s ease-in-out;
+}
+
+.list.active {
+	max-height: 90vh;
+	overflow-y: auto;
 }
 
 .list h3 {
 	font-size: 1.4rem;
 	text-align: center;
-	margin-bottom: 2rem;
+	margin: 25px auto 50px;
 	letter-spacing: .08rem;
 }
 
+.drop-btn {
+	cursor: pointer;
+	top: 30px;
+	left: 30px;
+	position: absolute;
+	font-size: 2rem;
+	transition: .15s ease-in;
+}
+
+.drop-btn:hover {}
+
+.list.active .drop-btn {
+	transform: rotate(180deg);
+}
+
 .list p {
-	text-overflow: ellipsis;
-	white-space: nowrap;
-	overflow: hidden;
 	opacity: .9;
-	margin: 0%;
+	line-height: .8;
 }
 
 .list p i {
